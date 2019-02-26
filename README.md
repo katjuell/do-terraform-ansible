@@ -15,12 +15,12 @@ Here's how to use this repo.
 Clone it:
 
 ```command
-git clone https://github.com/katjuell/do-terraform-ansible.git do_setup
+$ git clone https://github.com/katjuell/do-terraform-ansible.git do_setup
 ```
 Move to the directory:
 
 ```command
-do_setup
+$ do_setup
 ```
 
 ## Step 2 — Add Your Info to the Appropriate Files
@@ -28,7 +28,7 @@ do_setup
 Add your SSH fingerpint and DigitalOcean access token to `terraform.tfvars`:
 
 ```command
-vi terraform.tfvars
+$ vi terraform.tfvars
 ```
 ```
 [label ~/do_setup/terraform.tfvars]
@@ -38,7 +38,6 @@ ssh_fingerprint = "" #fill this in
 If you want to change the size of the resources in `terraform.tf` you should feel free. Also feel free to rename your Droplet — `test` isn't very descriptive:
 
 ```
-[label ~/do_setup/terraform.tf]
 ...
 # create smallest droplet
 resource "digitalocean_droplet" "test" {
@@ -53,7 +52,6 @@ resource "digitalocean_droplet" "test" {
 In `ansible.yml`, you'll also want to create a username other than `sammy`:
 
 ```
-[label ~/do_setup/ansible.yml]
 ...
    - name: create user 'sammy'
       user: 
@@ -83,28 +81,28 @@ You are ready to start!
 Initialize Terraform:
 
 ```command
-terraform init
+$ terraform init
 ```
 Test the plan for provisioning your infrastructure:
 
 ```command
-terraform plan
+$ terraform plan
 ```
 Create your server:
 
 ```command
-terraform apply
+$ terraform apply
 ```
 Run the playbook to create your user and configure your firewall with UFW:
 
 ```command
-ansible-playbook -i inventory ansible.yml
+$ ansible-playbook -i inventory ansible.yml
 ```
 Your `terraform.tfstate` file will have your IP address; you can also get it from the DO Control Panel.
 
 SSH into your server as your non-root user, and change your password:
 
 ```command
-sudo passwd sammy
+$ sudo passwd sammy
 ```
 You are good to go!
