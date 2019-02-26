@@ -31,7 +31,6 @@ Add your SSH fingerpint and DigitalOcean access token to `terraform.tfvars`:
 $ vi terraform.tfvars
 ```
 ```
-[label ~/do_setup/terraform.tfvars]
 do_token = "" #fill this in
 ssh_fingerprint = "" #fill this in
 ```
