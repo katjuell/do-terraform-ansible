@@ -1,0 +1,49 @@
+---
+- hosts: all
+
+  tasks:
+    - name: install DigitalOcean repo key
+      apt_key:
+        url: https://repos.sonar.digitalocean.com/sonar-agent.asc
+        state: present
+
+    - name: install DigitalOcean apt repo
+      apt_repository:
+        repo: deb https://repos.sonar.digitalocean.com/apt main main
+        state: present
+        update_cache: yes
+
+    - name: update all packages
+      apt:
+        upgrade: dist
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: create user 'mrcat'
+      user: 
+          name: mrcat 
+          append: yes 
+          state: present 
+          createhome: yes 
+          shell: /bin/bash
+
+    - name: allow 'mrcat' to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        line: 'mrcat ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+
+    - name: set up authorized keys for 'mrcat' user
+      authorized_key: user=mrcat key="{{item}}"
+      with_file:
+        - ~/.ssh/id_rsa.pub
+
+    - name: allow SSH traffic
+      ufw:
+        rule: allow
+        name: OpenSSH
+    
+    - name: enable UFW
+      ufw:
+        state: enabled
+  
