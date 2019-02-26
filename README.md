@@ -20,7 +20,7 @@ $ git clone https://github.com/katjuell/do-terraform-ansible.git do_setup
 Move to the directory:
 
 ```command
-$ do_setup
+$ cd do_setup
 ```
 
 ## Step 2 — Add Your Info to the Appropriate Files
@@ -31,9 +31,8 @@ Add your SSH fingerpint and DigitalOcean access token to `terraform.tfvars`:
 $ vi terraform.tfvars
 ```
 ```
-[label ~/do_setup/terraform.tfvars]
-do_token = "" #fill this in
-ssh_fingerprint = "" #fill this in
+do_token = "" #fill this in with your own information
+ssh_fingerprint = "" #fill this in with your own information
 ```
 If you want to change the size of the resources in `terraform.tf` you should feel free. Also feel free to rename your Droplet — `test` isn't very descriptive:
 
@@ -64,7 +63,7 @@ In `ansible.yml`, you'll also want to create a username other than `sammy`:
     - name: allow 'sammy' to have passwordless sudo
       lineinfile:
         dest: /etc/sudoers
-        line: 'mrcat ALL=(ALL) NOPASSWD: ALL'
+        line: 'sammy ALL=(ALL) NOPASSWD: ALL'
         validate: 'visudo -cf %s'
 
     - name: set up authorized keys for 'sammy' user
