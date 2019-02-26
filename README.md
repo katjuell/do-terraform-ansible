@@ -20,7 +20,7 @@ $ git clone https://github.com/katjuell/do-terraform-ansible.git do_setup
 Move to the directory:
 
 ```command
-$ do_setup
+$ cd do_setup
 ```
 
 ## Step 2 — Add Your Info to the Appropriate Files
