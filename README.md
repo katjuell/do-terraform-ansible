@@ -31,13 +31,8 @@ Add your SSH fingerpint and DigitalOcean access token to `terraform.tfvars`:
 $ vi terraform.tfvars
 ```
 ```
-<<<<<<< HEAD
 do_token = "" #fill this in with your own information
 ssh_fingerprint = "" #fill this in with your own information
-=======
-do_token = "" #fill this in
-ssh_fingerprint = "" #fill this in
->>>>>>> upstream/master
 ```
 If you want to change the size of the resources in `terraform.tf` you should feel free. Also feel free to rename your Droplet — `test` isn't very descriptive:
 
