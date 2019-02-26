@@ -19,22 +19,22 @@
         update_cache: yes
         cache_valid_time: 3600
 
-    - name: create user 'mrcat'
+    - name: create user 'sammy'
       user: 
-          name: mrcat 
+          name: sammy 
           append: yes 
           state: present 
           createhome: yes 
           shell: /bin/bash
 
-    - name: allow 'mrcat' to have passwordless sudo
+    - name: allow 'sammy' to have passwordless sudo
       lineinfile:
         dest: /etc/sudoers
-        line: 'mrcat ALL=(ALL) NOPASSWD: ALL'
+        line: 'sammy ALL=(ALL) NOPASSWD: ALL'
         validate: 'visudo -cf %s'
 
-    - name: set up authorized keys for 'mrcat' user
-      authorized_key: user=mrcat key="{{item}}"
+    - name: set up authorized keys for 'sammy' user
+      authorized_key: user=sammy key="{{item}}"
       with_file:
         - ~/.ssh/id_rsa.pub
 
