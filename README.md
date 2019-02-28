@@ -105,3 +105,11 @@ SSH into your server as your non-root user, and change your password:
 $ sudo passwd sammy
 ```
 You are good to go!
+
+## Step 4 — Clean Up
+
+When you are ready to take everything down, type:
+
+```command
+terraform destroy
+```
