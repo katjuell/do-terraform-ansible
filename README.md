@@ -2,7 +2,9 @@
 
 This repository is a quickstart to get a single 1GB 1vCPU [Droplet](https://www.digitalocean.com/pricing/) up and running on DigitalOcean using [Terraform](https://www.terraform.io/) and [Ansible](https://www.ansible.com/). You can use it as a jumping off point to build out your infrastructure.
 
-The setup here riffs on this [really cool project](https://github.com/do-community/terraform-ansible-demo) that shows you how to use Terraform and Ansible to provision two DO Droplets and a Load Balancer, with Nginx installed on both servers. It also mirrors the functionality of DO's recommended [Ubuntu 18.04 server setup instructions](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04). So it's a great starting point if you want to work with DO tutorial prerequisites! 
+The setup here riffs on this [really cool project](https://github.com/do-community/terraform-ansible-demo) that shows you how to use Terraform and Ansible to provision two DO Droplets and a Load Balancer, with Nginx installed on both servers. Check it out!
+
+This repo is specifically designed to mirror the functionality of DO's recommended [Ubuntu 18.04 server setup instructions](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04). So it's a great starting point if you want to work with DO tutorial prerequisites! 
 
 Make sure that you enter **your own information** into `terraform.tfvars`. For this file, you'll need:
 - An [SSH key](https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/) on your local computer that's associated with your DigitalOcean account. To get the fingerprint of this key, run: `ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub | awk '{print $2}'`
